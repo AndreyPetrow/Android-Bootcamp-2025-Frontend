@@ -12,4 +12,13 @@
     <color name="black_overlay">#66000000</color>
 
     <color name="red">#FF0000</color>
+    <color name="gray">#ffffff</color>
+    <color name="gainsboro">#ffffff</color>
+    <color name="maroon_500">#f19595</color>
+    <color name="error_banner_background">#7D0C0C</color>
+    <color name="light_green">#DFEFC9</color>
+    <color name="dark_green">#283E36</color>
+    <color name="light_gray">#999999</color>
+    <color name="light_light_gray">#f0efeb</color>
+    <color name="light_light_green">#d0e3c7</color>
 </resources>

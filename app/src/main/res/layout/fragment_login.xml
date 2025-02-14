@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.login.LoginFragment"
+    tools:context=".ui.login.login.LoginFragment"
     android:id="@+id/login_fragment">
 
     <LinearLayout
@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Вход"
+                    android:text="@string/login_text_"
                     android:textSize="40sp"
                     android:textAlignment="center"
                     android:textStyle="bold" />
@@ -40,45 +40,51 @@
                     android:id="@+id/email_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    android:layout_marginTop="20dp">
+                    app:shapeAppearance="@style/rounded"
+                    android:layout_marginTop="20dp"
+
+                    app:boxStrokeColor="@color/green"
+                    app:cursorColor="#49454F"
+                    app:hintTextColor="@color/green">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:hint="Электронная почта" />
+                        android:hint="@string/email"
+                        android:maxLines="1"
+                        android:inputType="text"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
                     android:layout_marginTop="5dp"
 
+                    app:shapeAppearance="@style/rounded"
+
                     app:endIconMode="password_toggle"
-                    app:helperTextTextColor="@color/red">
+                    app:helperTextTextColor="@color/red"
+
+                    app:boxStrokeColor="@color/green"
+                    app:cursorColor="#49454F"
+                    app:hintTextColor="@color/green">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/password"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
-                        android:hint="Пароль"
-                        android:inputType="textPassword" />
+                        android:hint="@string/password"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/loginButton"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:text="Войти"
+                    android:text="@string/login"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:layout_marginTop="20dp"
@@ -90,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
-                    android:text="Нет аккаунта? Зарегистрируйся сейчас!"
+                    android:text="@string/singup_text"
                     android:textSize="14sp"
                     android:textAlignment="center"
                     android:textColor="@color/green" />

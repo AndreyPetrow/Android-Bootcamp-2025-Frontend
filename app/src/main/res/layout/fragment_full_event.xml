@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_full_event"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fullEvent.FullEventFragment">
+
+    <ProgressBar
+        android:id="@+id/fullEventLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/connection_issue_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/error_banner_background"
+        android:paddingVertical="2dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/connection_issue_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="Вы не подключены к интернету!"
+            android:textColor="@color/maroon_500"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_warning_black"
+            app:drawableTint="@color/maroon_500" />
+    </FrameLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/main_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <ImageView
+                    android:id="@+id/arrowBack"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/arrow_back"
+                    app:tint="@color/light_gray" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/eventImage"
+                    android:layout_width="170dp"
+                    android:layout_height="220dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/events_red_panda"
+                    app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@+id/eventImage"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:padding="2dp">
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp">
+
+                        <TextView
+                            android:id="@+id/fullEventName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif"
+                            android:maxLines="5"
+                            android:text="Концерт в честь защиты красных панд"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/fullEventDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_below="@+id/fullEventName"
+                            android:layout_marginTop="10dp"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif"
+                            android:hyphenationFrequency="fullFast"
+                            android:maxLines="6"
+                            android:text="Требуются люди, умеющие петь или играть на музыкальных инструментах."
+                            android:textSize="17sp" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:id="@+id/eventInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif"
+                            android:text="Информация о мероприятии"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/fullEventPlaceLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/eventInfo"
+                            android:layout_marginTop="5dp"
+
+                            android:enabled="false"
+                            app:shapeAppearance="@style/rounded"
+
+                            app:startIconDrawable="@drawable/pin_drop_24px">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fullEventPlace"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Место проведения"
+                                android:text="г. Москва, ул. Бауманская, сквер им. Баумана"
+                                android:textColor="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/fullEventDistanceLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fullEventPlaceLayout"
+                            android:layout_marginTop="5dp"
+
+                            android:enabled="false"
+                            app:shapeAppearance="@style/rounded"
+
+                            app:startIconDrawable="@drawable/distance_24px">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fullEventDistance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Расстояние"
+                                android:text="550 м"
+                                android:textColor="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/fullEventOrganizerLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:layout_below="@+id/fullEventDistanceLayout"
+                            android:layout_marginTop="5dp"
+
+                            android:enabled="false"
+                            app:shapeAppearance="@style/rounded"
+
+                            app:startIconDrawable="@drawable/volunteer_activism">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/fullEventOrganizer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Организатор"
+                                android:text="Добрые руки"
+                                android:textColor="@color/black" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>
