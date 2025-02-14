@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profileEdit.EditVolunteerFragment">
+
+
+    <ProgressBar
+        android:id="@+id/profileLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/connection_issue_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/error_banner_background"
+        android:paddingVertical="2dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/connection_issue_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:text="Вы не подключены к интернету!"
+            android:textColor="@color/maroon_500"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_warning_black"
+            app:drawableTint="@color/maroon_500" />
+    </FrameLayout>
+
+
+    <ScrollView
+        android:id="@+id/all_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/arrowBack"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/arrow_back"
+                app:tint="@color/light_gray" />
+
+            <ImageView
+                android:id="@+id/updateButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/check_24px"
+                app:tint="@color/light_gray" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/profileImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:scaleType="centerCrop"
+                android:src="@color/green"
+                app:shapeAppearanceOverlay="@style/circleImageView" />
+
+            <TextView
+                android:id="@+id/updateProfilePhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileImage"
+                android:layout_centerHorizontal="true"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Изменить фото профиля"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/updateProfilePhoto"
+                android:layout_marginTop="10dp"
+
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/aboutMeText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="Информация о вас"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileNameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/aboutMeText"
+                        android:layout_marginTop="5dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Имя"
+                            android:text="Василий"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileSurnameLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/profileNameLayout"
+                        android:layout_marginTop="5dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileSurname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Фамилия"
+                            android:text="Васильевич"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profilePatronymicLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/profileSurnameLayout"
+                        android:layout_marginTop="5dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profilePatronymic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Отчество"
+                            android:text="Кутузов"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileAboutMeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/profilePatronymicLayout"
+                        android:layout_marginTop="4dp"
+
+                        app:counterEnabled="true"
+                        app:counterMaxLength="300"
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileAboutMe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="О себе"
+                            android:inputType="textCapSentences|textMultiLine"
+                            android:maxLines="200"
+                            android:text="@string/lorem_24"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/date_birth_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/profileAboutMeLayout"
+
+                        android:layout_marginTop="4dp"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+
+                        app:endIconDrawable="@drawable/calendar"
+                        app:endIconMode="custom"
+
+                        app:errorIconDrawable="@drawable/calendar"
+                        app:hintTextColor="@color/green"
+                        app:shapeAppearance="@style/rounded">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/date_birth"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:enabled="false"
+                            android:hint="@string/date_birth"
+                            android:inputType="text"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/city_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/date_birth_layout"
+                        android:layout_marginTop="4dp"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:endIconMode="dropdown_menu"
+
+                        app:hintTextColor="@color/green"
+                        app:shapeAppearance="@style/rounded">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/city_autoCompleteTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:hint="@string/city"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:padding="12dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <CheckBox
+                        android:id="@+id/medicalCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/city_layout"
+                        android:layout_marginTop="4dp"
+                        android:text="Есть медицинская книжка"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/driverLicenseCheckBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/medicalCheckBox"
+                        android:layout_marginTop="4dp"
+                        android:text="Есть водительские права"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:id="@+id/contactsText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/contacts"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileContactsEmailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/contactsText"
+                        android:layout_marginTop="5dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileContactsEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/email"
+                            android:inputType="textEmailAddress"
+                            android:text="example@gmail.com"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileContactsTelephoneLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/profileContactsEmailLayout"
+                        android:layout_marginTop="2dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileContactsTelephone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Телефон"
+                            android:text="+79176026991"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileContactsTelegramLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/profileContactsTelephoneLayout"
+                        android:layout_marginTop="2dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileContactsTelegram"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Телеграмм"
+                            android:text="/@klimvill"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/profileContactsVkLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_below="@+id/profileContactsTelegramLayout"
+                        android:layout_marginTop="2dp"
+
+                        app:shapeAppearance="@style/rounded"
+                        app:boxStrokeColor="@color/green"
+                        app:cursorColor="#49454F"
+                        app:hintTextColor="@color/green">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/profileContactsVk"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Вконтакте"
+                            android:text="12123213213"
+                            android:textColor="@color/black" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
